@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjektPW\Logika.csproj" />
+  </ItemGroup>
+
 </Project>

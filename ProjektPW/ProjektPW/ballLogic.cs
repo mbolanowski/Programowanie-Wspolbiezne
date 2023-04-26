@@ -5,8 +5,8 @@ namespace Logika
 {
     public class BallLogic : INotifyPropertyChanged
     {
-        private Ball ball;
-        public BallLogic(Ball ball)
+        private ballData ball;
+        public BallLogic(ballData ball)
         {
             this.ball = ball;
             this.ball.PropertyChanged += Update;
