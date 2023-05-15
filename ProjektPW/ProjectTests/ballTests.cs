@@ -13,14 +13,15 @@ namespace Testy
     [TestClass()]
     public class ballTests
     {
-        ballData ball = new ballData(1, 1);
+        ballData ball = new ballData(1, 1, 1);
 
         [TestMethod]
         public void GetterTest()
         {
             Assert.AreEqual(1, ball.X);
             Assert.AreEqual(1, ball.Y);
-            Assert.AreEqual(30, ball.Radius);
+            Assert.AreEqual(15, ball.Radius);
+            Assert.AreEqual(1, ball.Weight);
         }
 
         [TestMethod]

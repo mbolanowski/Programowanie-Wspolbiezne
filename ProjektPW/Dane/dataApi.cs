@@ -50,7 +50,7 @@ namespace Dane
                         while (updating)
                         {
                             await semaphore.WaitAsync();
-                            ball.updatePos(ball.X + ball.XSpeed, ball.Y + ball.YSpeed);
+                            ball.updatePos(ball.newX(), ball.newY());
                             semaphore.Release();
                             await Task.Delay(2);
                         }

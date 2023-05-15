@@ -4,17 +4,19 @@ namespace Dane
 {
     public class ballData : INotifyPropertyChanged
     {
-        private int x;
-        private int y;
-        private int radius;
-        private int xSpeed;
-        private int ySpeed;
+        private double x;
+        private double y;
+        private double radius;
+        private double xSpeed;
+        private double ySpeed;
+        private double weight;
 
-        public ballData(int x, int y)
+        public ballData(double x, double y, double weight)
         {
             this.x = x;
             this.y = y;
-            radius = 30;
+            this.weight = weight;
+            radius = 15;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -27,7 +29,7 @@ namespace Dane
             }
         }
 
-        public int Radius
+        public double Radius
         {
             get { return radius; }
             set
@@ -40,7 +42,7 @@ namespace Dane
             }
         }
 
-        public int X
+        public double X
         {
             get { return x; }
             set
@@ -53,7 +55,7 @@ namespace Dane
             }
         }
 
-        public int Y
+        public double Y
         {
             get { return y; }
             set
@@ -67,7 +69,7 @@ namespace Dane
         }
 
 
-        public int XSpeed
+        public double XSpeed
         {
             get { return xSpeed; }
             set
@@ -80,7 +82,7 @@ namespace Dane
             }
         }
 
-        public int YSpeed
+        public double YSpeed
         {
             get { return ySpeed; }
             set
@@ -92,14 +94,27 @@ namespace Dane
                 }
             }
         }
+        public double Weight
+        {
+            get { return weight; }
+        }
 
-        public void updatePos(int x, int y)
+        public double newX()
+        {
+            return X + XSpeed;
+        }
+        public double newY()
+        {
+            return Y + YSpeed;
+        }
+
+        public void updatePos(double x, double y)
         {
             X = x;
             Y = y;
         }
 
-        public void setSpeed(int x, int y)
+        public void setSpeed(double x, double y)
         {
             XSpeed = x;
             YSpeed = y;

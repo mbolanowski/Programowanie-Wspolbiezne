@@ -5,9 +5,9 @@ namespace Model
 {
     public class ballModel : INotifyPropertyChanged
     {
-        private int x;
-        private int y;
-        private int radius;
+        private double x;
+        private double y;
+        private double radius;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string name)
@@ -18,7 +18,7 @@ namespace Model
             }
         }
 
-        public int X
+        public double X
         {
             get { return x; }
             set
@@ -31,7 +31,7 @@ namespace Model
             }
         }
 
-        public int Y
+        public double Y
         {
             get { return y; }
             set
@@ -44,7 +44,7 @@ namespace Model
             }
         }
 
-        public int Radius
+        public double Radius
         {
             get { return radius; }
             set

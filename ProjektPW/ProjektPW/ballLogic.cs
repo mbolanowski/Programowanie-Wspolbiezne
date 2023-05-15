@@ -38,7 +38,7 @@ namespace Logika
             }
         }
 
-        public int X
+        public double X
         {
             get { return ball.X; }
             set
@@ -51,7 +51,7 @@ namespace Logika
             }
         }
 
-        public int Y
+        public double Y
         {
             get { return ball.Y; }
             set
@@ -64,7 +64,7 @@ namespace Logika
             }
         }
 
-        public int Radius
+        public double Radius
         {
             get { return ball.Radius; }
             set
@@ -76,7 +76,10 @@ namespace Logika
                 }
             }
         }
-
+        public double Weight
+        {
+            get { return ball.Weight; }
+        }
 
     }
 }

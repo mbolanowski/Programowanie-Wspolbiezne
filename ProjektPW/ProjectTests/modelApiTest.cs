@@ -26,12 +26,13 @@ namespace Testy
         [TestMethod]
         public void _ModelBallTest()
         {
-            Dane.ballData ball = new Dane.ballData(1, 1);
+            Dane.ballData ball = new Dane.ballData(1, 1, 1);
             Logika.BallLogic ballLogic = new Logika.BallLogic(ball);
 
             Assert.AreEqual(ball.X, ballLogic.X);
             Assert.AreEqual(ball.Y, ballLogic.Y);
             Assert.AreEqual(ball.Radius, ballLogic.Radius);
+            Assert.AreEqual(ball.Weight, ballLogic.Weight);
         }
     }
 }
