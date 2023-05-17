@@ -50,7 +50,7 @@ namespace Logika
                 {
                     this.balls.Add(new BallLogic(ball));
                     ball.PropertyChanged += touchBorder;
-                    ball.PropertyChanged += ballCollision;
+                    ball.PropertyChanged += Collision;
                 }
             }
             public override void StopUpdating()
@@ -94,9 +94,9 @@ namespace Logika
                 }
             }
 
-            private SemaphoreSlim semaphore = new SemaphoreSlim(1);
+            private readonly object lockedBall = new();
 
-            public async void ballCollision(object sender, PropertyChangedEventArgs e)
+            public async void Collision(object sender, PropertyChangedEventArgs e)
             {
                 ballData ball1 = (ballData)sender;
                 if (e.PropertyName == nameof(ball1.X) || e.PropertyName == nameof(ball1.Y))
@@ -130,16 +130,11 @@ namespace Logika
                                 ball2XSpeed = (ball2.XSpeed * (ball2.Weight - ball1.Weight) + (ball1.Weight * ball1.XSpeed * 2)) / (ball2.Weight + ball1.Weight);
                                 ball2YSpeed = (ball2.YSpeed * (ball2.Weight - ball1.Weight) + (ball1.Weight * ball1.YSpeed * 2)) / (ball2.Weight + ball1.Weight);
                             }
-                            await semaphore.WaitAsync();
 
-                            try
+                            lock(lockedBall)
                             {
                                 ball1.setSpeed(ball1XSpeed, ball1YSpeed);
                                 ball2.setSpeed(ball2XSpeed, ball2YSpeed);
-                            }
-                            finally
-                            {
-                                semaphore.Release();
                             }
                         }
                     }

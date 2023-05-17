@@ -22,14 +22,13 @@ namespace Dane
         internal class DataApi : AbstractDataApi
         {
             private ballArea field;
-            private bool updating;
+            private bool update;
             private readonly object locked = new();
-            SemaphoreSlim semaphore = new SemaphoreSlim(1);
 
             public bool Updating
             {
-                get { return updating; }
-                set { updating = value; }
+                get { return update; }
+                set { update = value; }
             }
 
             public override ballArea Area
@@ -47,11 +46,12 @@ namespace Dane
                 {
                     Task t = new Task(async () =>
                     {
-                        while (updating)
+                        while (update)
                         {
-                            await semaphore.WaitAsync();
-                            ball.updatePos(ball.newX(), ball.newY());
-                            semaphore.Release();
+                            lock (locked)
+                            {
+                                ball.updatePos(ball.newX(), ball.newY());
+                            }
                             await Task.Delay(2);
                         }
                     });
