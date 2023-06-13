@@ -20,7 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Dane\Dane.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
-    <ProjectReference Include="..\ProjektPW\Logika.csproj" />
+    <ProjectReference Include="..\Logika\Logika.csproj" />
     <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
   </ItemGroup>
 

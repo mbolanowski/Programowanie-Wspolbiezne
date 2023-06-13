@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logika", "ProjektPW\Logika.csproj", "{5AC63860-5EB4-4820-B8D5-2860CE25D8DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logika", "Logika\Logika.csproj", "{5AC63860-5EB4-4820-B8D5-2860CE25D8DF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testy", "ProjectTests\Testy.csproj", "{18EADDA4-EA35-46B9-9675-6AFE05B92934}"
 EndProject
