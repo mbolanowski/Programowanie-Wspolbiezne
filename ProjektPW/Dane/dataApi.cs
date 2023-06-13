@@ -14,6 +14,7 @@ namespace Dane
         public abstract bool IsUpdating();
         public abstract ballArea Area { get; }
 
+
         public static AbstractDataApi createApi()
         {
             return new DataApi();
@@ -24,6 +25,7 @@ namespace Dane
             private ballArea field;
             private bool update;
             private readonly object locked = new();
+            private Log log;
 
             public bool Updating
             {
@@ -41,6 +43,7 @@ namespace Dane
                 this.field = new ballArea(height, width, numberOfBalls);
                 this.Updating = true;
                 List<ballData> balls = GetBalls();
+                log = new Log(balls);
 
                 foreach (ballData ball in balls)
                 {
@@ -62,6 +65,7 @@ namespace Dane
             public override void StopUpdating()
             {
                 this.Updating = false;
+                log.Stop();
             }
 
             public override bool IsUpdating()
