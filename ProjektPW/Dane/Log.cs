@@ -19,7 +19,7 @@ namespace Dane
         public Log(List<ballData> balls)
         {
             this.balls = balls;
-            timer = new Timer(100);
+            timer = new Timer(1000);
             timer.Elapsed += TimerElapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
